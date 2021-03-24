@@ -1,7 +1,7 @@
 import express from 'express';
 import assert from 'assert';
-import * as apiKeys from '../core/apiKeys';
-import services  from '../core/apiKeys/services';
+import ApiKeyDTO from '../core/entities/ApiKeyDTO';
+import services  from '../core/services';
 
 export const createApiKey = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
 
@@ -12,7 +12,7 @@ export const createApiKey = async (req: express.Request, res: express.Response, 
 
         const { body } = req;
 
-        const apiKeyDTO: apiKeys.ApiKeyDTO = new apiKeys.ApiKeyDTO(body.api_key, true);
+        const apiKeyDTO: ApiKeyDTO = new ApiKeyDTO(body.api_key, true);
 
         await services.createApiKey(apiKeyDTO);
 

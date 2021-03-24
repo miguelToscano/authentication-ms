@@ -1,6 +1,6 @@
 import MongoClient from 'mongodb';
-import ApiKeysRepository from '../core/apiKeys/ApiKeysRepository';
-import ApiKeyDTO from '../core/apiKeys/ApiKeyDTO';
+import ApiKeysRepository from '../core/repositories/ApiKeysRepository';
+import ApiKeyDTO from '../core/entities/ApiKeyDTO';
 
 export default class ApiKeysMongoDb implements ApiKeysRepository {
 
