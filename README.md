@@ -1,2 +1,2 @@
 # authentication-ms
-Handles authentication for API key values
+Handles authentication for API key values and CRUD operations
