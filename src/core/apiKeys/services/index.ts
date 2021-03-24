@@ -1,6 +1,6 @@
 import createApiKey from './createApiKey';
-import * as apiKeys from '../core/apiKeys';
-import MongoDb from '../infrastructure/mongoDb';
+import * as apiKeys from '..';
+import MongoDb from '../../../infrastructure/mongoDb';
 
 const apiKeysRepository: apiKeys.ApiKeysRepository = new MongoDb();
 
