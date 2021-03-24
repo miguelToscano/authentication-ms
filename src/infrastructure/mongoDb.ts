@@ -1,48 +1,48 @@
-import MongoClient from 'mongodb';
-import ApiKeysRepository from '../core/repositories/ApiKeysRepository';
-import ApiKeyDTO from '../core/entities/ApiKeyDTO';
+// import MongoClient from 'mongodb';
+// import ApiKeysRepository from '../core/repositories/ApiKeysRepository';
+// import ApiKeyDTO from '../core/entities/ApiKeyDTO';
 
-const database = [];
+// const database = [];
 
-export default class ApiKeysMongoDb implements ApiKeysRepository {
+// export default class ApiKeysMongoDb implements ApiKeysRepository {
 
-    client: MongoClient.MongoClient;
+//     client: MongoClient.MongoClient;
 
-    constructor() {
+//     constructor() {
 
-        this.client = null;
-    }
+//         this.client = null;
+//     }
 
-    private async initConnection(): Promise<void> {
+//     private async initConnection(): Promise<void> {
     
-        try {
+//         try {
     
-            this.client = await MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true });
-            console.log(`Connection succesful: ${this.client}`);
+//             this.client = await MongoClient.connect('mongodb://localhost:27017', { useUnifiedTopology: true });
+//             console.log(`Connection succesful: ${this.client}`);
     
-        } catch (error) {
+//         } catch (error) {
     
-            throw error;
-        }
-    }
+//             throw error;
+//         }
+//     }
 
-    public async create(apikey: ApiKeyDTO): Promise<ApiKeyDTO> {
+//     public async create(apikey: ApiKeyDTO): Promise<ApiKeyDTO> {
 
-        if (!this.client) {
+//         if (!this.client) {
 
-            await this.initConnection();
-        }
+//             await this.initConnection();
+//         }
 
-        database.push(apikey);
+//         database.push(apikey);
 
-        console.table(database);
+//         console.table(database);
 
-        console.log('creating apikey');
+//         console.log('creating apikey');
 
-        return apikey;
-    };
+//         return apikey;
+//     };
 
-    public printData(): void {
-        console.log('data');
-    };
-};
+//     public printData(): void {
+//         console.log('data');
+//     };
+// };

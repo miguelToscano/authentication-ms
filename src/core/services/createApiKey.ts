@@ -1,14 +1,11 @@
 import ApiKeyDTO from '../entities/ApiKeyDTO' ;
 import ApiKeysRepository from '../repositories/ApiKeysRepository' ;
-import MongoDb from '../../infrastructure/MongoDb';
 
-const createApiKey = (apiKeyRepository: ApiKeysRepository) => async (apiKey: ApiKeyDTO): Promise<ApiKeyDTO> => {
+const createApiKey = (apiKeysRepository: ApiKeysRepository) => async (apiKey: ApiKeyDTO): Promise<ApiKeyDTO> => {
 
-    console.log('Creando api key...');
+    await apiKeysRepository.create(apiKey);
 
-    await apiKeyRepository.create(apiKey);
-
-    apiKeyRepository.printData();
+    apiKeysRepository.printData();
 
     return apiKey;
 };
