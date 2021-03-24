@@ -3,4 +3,5 @@ import * as controllers from '../controllers';
 
 export const bind = (app: express.Application): void => {
     app.get('/health', controllers.checkHealth);
+    app.post('/api_key', controllers.createApiKey);
 };
