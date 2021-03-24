@@ -2,6 +2,8 @@ import MongoClient from 'mongodb';
 import ApiKeysRepository from '../core/repositories/ApiKeysRepository';
 import ApiKeyDTO from '../core/entities/ApiKeyDTO';
 
+const database = [];
+
 export default class ApiKeysMongoDb implements ApiKeysRepository {
 
     client: MongoClient.MongoClient;
@@ -24,15 +26,23 @@ export default class ApiKeysMongoDb implements ApiKeysRepository {
         }
     }
 
-    public async create(apikeyDTO: ApiKeyDTO): Promise<ApiKeyDTO> {
+    public async create(apikey: ApiKeyDTO): Promise<ApiKeyDTO> {
 
         if (!this.client) {
 
             await this.initConnection();
         }
 
+        database.push(apikey);
+
+        console.table(database);
+
         console.log('creating apikey');
 
-        return apikeyDTO;
+        return apikey;
+    };
+
+    public printData(): void {
+        console.log('data');
     };
 };
